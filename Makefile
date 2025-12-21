@@ -1,6 +1,6 @@
 # --- Configuration ---
 
-PROJECT_NAME = pong
+PROJECT_NAME = engine3d
 SRC_DIR = src
 BUILD_DIR = build
 BIN_DIR = bin
