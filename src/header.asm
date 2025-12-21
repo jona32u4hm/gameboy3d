@@ -1,7 +1,7 @@
 INCLUDE "include/hardware.inc"
 
 SECTION "Vblank", ROM0[$0040]
-    JP VBlankISR
+    reti
 
 SECTION "LCDC", ROM0[$0048]
 	reti

@@ -1,0 +1,39 @@
+SUMMARY:
+	ROM0: 268 bytes used / 16116 free
+
+ROM0 bank #0:
+	SECTION: $0000-$001b ($001c bytes) ["Memory Routines"]
+	         $0000 = memLoad
+	         $0004 = memLoad.loop
+	         $0007 = memLoad.skip
+	         $000e = mapLoad
+	         $0012 = mapLoad.loop
+	         $0015 = mapLoad.skip
+	EMPTY: $001c-$003f ($0024 bytes)
+	SECTION: $0040-$0040 ($0001 byte) ["Vblank"]
+	EMPTY: $0041-$0047 ($0007 bytes)
+	SECTION: $0048-$0048 ($0001 byte) ["LCDC"]
+	EMPTY: $0049-$004f ($0007 bytes)
+	SECTION: $0050-$0050 ($0001 byte) ["Timer"]
+	EMPTY: $0051-$0057 ($0007 bytes)
+	SECTION: $0058-$0058 ($0001 byte) ["Serial"]
+	EMPTY: $0059-$005f ($0007 bytes)
+	SECTION: $0060-$0060 ($0001 byte) ["Joypad"]
+	SECTION: $0061-$00b7 ($0057 bytes) ["Tile Generation Code"]
+	         $0061 = generateTiles
+	         $0064 = generateTiles.generateTile
+	         $0075 = generateTiles.p1c1
+	         $007d = generateTiles.p2c1
+	         $0086 = generateTiles.p1c2
+	         $008e = generateTiles.p2c2
+	         $0097 = generateTiles.p3c1
+	         $009f = generateTiles.p4c1
+	         $00a8 = generateTiles.p3c2
+	         $00b0 = generateTiles.p4c2
+	SECTION: $00b8-$00fb ($0044 bytes) ["Entry point"]
+	         $00b8 = Setup
+	         $00de = Setup.waitVBlank
+	EMPTY: $00fc-$00ff ($0004 bytes)
+	SECTION: $0100-$014f ($0050 bytes) ["Header"]
+	EMPTY: $0150-$3fff ($3eb0 bytes)
+	TOTAL EMPTY: $3ef4 bytes
