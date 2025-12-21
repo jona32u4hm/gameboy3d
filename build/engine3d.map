@@ -1,5 +1,5 @@
 SUMMARY:
-	ROM0: 268 bytes used / 16116 free
+	ROM0: 296 bytes used / 16088 free
 
 ROM0 bank #0:
 	SECTION: $0000-$001b ($001c bytes) ["Memory Routines"]
@@ -19,21 +19,21 @@ ROM0 bank #0:
 	SECTION: $0058-$0058 ($0001 byte) ["Serial"]
 	EMPTY: $0059-$005f ($0007 bytes)
 	SECTION: $0060-$0060 ($0001 byte) ["Joypad"]
-	SECTION: $0061-$00b7 ($0057 bytes) ["Tile Generation Code"]
+	SECTION: $0061-$00d3 ($0073 bytes) ["Tile Generation Code"]
 	         $0061 = generateTiles
 	         $0064 = generateTiles.generateTile
 	         $0075 = generateTiles.p1c1
 	         $007d = generateTiles.p2c1
-	         $0086 = generateTiles.p1c2
-	         $008e = generateTiles.p2c2
-	         $0097 = generateTiles.p3c1
-	         $009f = generateTiles.p4c1
-	         $00a8 = generateTiles.p3c2
-	         $00b0 = generateTiles.p4c2
-	SECTION: $00b8-$00fb ($0044 bytes) ["Entry point"]
-	         $00b8 = Setup
-	         $00de = Setup.waitVBlank
-	EMPTY: $00fc-$00ff ($0004 bytes)
+	         $0087 = generateTiles.p1c2
+	         $008f = generateTiles.p2c2
+	         $00a5 = generateTiles.p3c1
+	         $00ad = generateTiles.p4c1
+	         $00b7 = generateTiles.p3c2
+	         $00bf = generateTiles.p4c2
+	EMPTY: $00d4-$00ff ($002c bytes)
 	SECTION: $0100-$014f ($0050 bytes) ["Header"]
-	EMPTY: $0150-$3fff ($3eb0 bytes)
-	TOTAL EMPTY: $3ef4 bytes
+	SECTION: $0150-$0193 ($0044 bytes) ["Entry point"]
+	         $0150 = Setup
+	         $0176 = Setup.waitVBlank
+	EMPTY: $0194-$3fff ($3e6c bytes)
+	TOTAL EMPTY: $3ed8 bytes

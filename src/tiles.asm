@@ -28,6 +28,7 @@ generateTiles::
         .p2c1
         or b
         ld [hl+], a 
+        ld d, a
 
         ld a, c
         and %01000000
@@ -43,6 +44,21 @@ generateTiles::
         or b
         ld [hl+], a 
 
+        ld e, a
+        ld a, d
+        ld [hl+], a 
+        ld a, e
+        ld [hl+], a 
+        ld a, d
+        ld [hl+], a 
+        ld a, e
+        ld [hl+], a 
+        ld a, d
+        ld [hl+], a 
+        ld a, e
+        ld [hl+], a 
+
+
         ld a, c
         and %00001000
         jr z,.p3c1
@@ -56,6 +72,7 @@ generateTiles::
         .p4c1
         or b
         ld [hl+], a 
+        ld d, a
 
         ld a, c
         and %00000100
@@ -69,6 +86,20 @@ generateTiles::
             ld a, %00001111
         .p4c2
         or b
+        ld [hl+], a         
+        
+        ld e, a
+        ld a, d
+        ld [hl+], a 
+        ld a, e
+        ld [hl+], a 
+        ld a, d
+        ld [hl+], a 
+        ld a, e
+        ld [hl+], a 
+        ld a, d
+        ld [hl+], a 
+        ld a, e
         ld [hl+], a 
 
     ld a, c
