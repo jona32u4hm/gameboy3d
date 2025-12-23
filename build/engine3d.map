@@ -1,5 +1,5 @@
 SUMMARY:
-	ROM0: 335 bytes used / 16049 free
+	ROM0: 470 bytes used / 15914 free
 	WRAM0: 362 bytes used / 3734 free
 
 ROM0 bank #0:
@@ -37,12 +37,17 @@ ROM0 bank #0:
 	         $00e9 = mapLoad.skip
 	EMPTY: $00f0-$00ff ($0010 bytes)
 	SECTION: $0100-$014f ($0050 bytes) ["Header"]
-	SECTION: $0150-$017e ($002f bytes) ["VBlank Framebuffer Update Routine"]
+	SECTION: $0150-$0205 ($00b6 bytes) ["VBlank Framebuffer Update Routine"]
 	         $0150 = updateFrameBuffer
-	         $0160 = updateFrameBuffer.nextTile
-	         $017d = updateFrameBuffer.return
-	EMPTY: $017f-$3fff ($3e81 bytes)
-	TOTAL EMPTY: $3eb1 bytes
+	         $0161 = updateFrameBuffer.nextRow
+	         $01a5 = afterVBlank.nextRow
+	         $01a5 = afterVBlank
+	         $01a5 = afterVBlank.waitHBlank1
+	         $01c1 = afterVBlank.waitHBlank2
+	         $01dd = afterVBlank.waitHBlank3
+	         $0204 = afterVBlank.return
+	EMPTY: $0206-$3fff ($3dfa bytes)
+	TOTAL EMPTY: $3e2a bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c169 ($016a bytes) ["WRAM"]

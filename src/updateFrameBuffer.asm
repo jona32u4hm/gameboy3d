@@ -1,3 +1,5 @@
+INCLUDE "include/hardware.inc"
+
 SECTION "VBlank Framebuffer Update Routine", ROM0
 
 ;updateFrameBuffer:
@@ -7,38 +9,169 @@ updateFrameBuffer::
     push af
     ld a, [frameDoneFlag]
     or 0
-    jr nz,.return
+    jp nz,afterVBlank.return
     push de
     push hl
     ld hl, frameBuffer
     ld de, $9800 - 1 ;offset cause we'll start by incrementing
 
-.nextTile
+.nextRow
     inc de
     ld a, [hl+]
     ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+
     ld a, e
-    ; check if end of the row reached:
+    or $0F ;send to end of row
+    ld e, a
+    cp $FF
+    jr nz,.nextRow
+afterVBlank: ; yeah, we hit a bottle neck here...
 
-    and $1F
-    cp $13
+.nextRow
 
-    jr nz,.nextTile ; copy next tile if were not at the end of the row
-    ; if end of the row reached:
+.waitHBlank1
+    ld a, [rSTAT]
+    and %00000011 ; HBLANK
+    jr nz,.waitHBlank1
+
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+.waitHBlank2
+    ld a, [rSTAT]
+    and %00000011 ; HBLANK
+    jr nz,.waitHBlank2
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+.waitHBlank3
+    ld a, [rSTAT]
+    and %00000011 ; HBLANK
+    jr nz,.waitHBlank3
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+    inc de
+    ld a, [hl+]
+    ld [de],a
+
+
+    
+
     ld a, e
     or $0F ;send to end of row
     ld e, a
 
-    ;check if both conditions for having finished the transfer have been met
-    ld a, l
-    cp low(frameBufferEnd)
-    jr c,.nextTile
-    ld a, h
-    cp high(frameBufferEnd)
-    jr c,.nextTile
-    ld [frameDoneFlag],a ;set frameDoneFlag to anything other than done
 
-
+    cp $3F
+    jr nz,.nextRow
+    bit 1,d
+    jr z,.nextRow
 
 
 

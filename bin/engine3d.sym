@@ -19,8 +19,13 @@
 00:00e6 mapLoad.loop
 00:00e9 mapLoad.skip
 00:0150 updateFrameBuffer
-00:0160 updateFrameBuffer.nextTile
-00:017d updateFrameBuffer.return
+00:0161 updateFrameBuffer.nextRow
+00:01a5 afterVBlank
+00:01a5 afterVBlank.nextRow
+00:01a5 afterVBlank.waitHBlank1
+00:01c1 afterVBlank.waitHBlank2
+00:01dd afterVBlank.waitHBlank3
+00:0204 afterVBlank.return
 00:c000 frameBuffer
 00:c168 frameBufferEnd
 00:c169 frameDoneFlag
