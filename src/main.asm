@@ -17,16 +17,11 @@ Setup::
 	ei
 	;-------- Configure LCD --------
 	ld	a, [rLCDC]	
-	or	LCDC_OBJ_ON	
-	or	LCDC_OBJ_8	
+	and	~LCDC_OBJ_ON	
 	ld	[rLCDC], a	
 	;configure palettes
-    ld a, %11100100
+    ld a, %11011000
 	ld [rBGP], a
-	ld a, %11100100
-	ld [rOBP0], a
-	ld a, %00011011
-	ld [rOBP1], a
 	nop
 	halt
 	nop
@@ -50,4 +45,12 @@ Setup::
 	ld	[rLCDC], a	
 
 
-	jr @
+
+
+
+
+MainLoop::
+	halt 
+	nop 
+
+	jr MainLoop

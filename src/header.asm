@@ -1,7 +1,8 @@
 INCLUDE "include/hardware.inc"
 
 SECTION "Vblank", ROM0[$0040]
-    reti
+
+    JP updateFrameBuffer
 
 SECTION "LCDC", ROM0[$0048]
 	reti

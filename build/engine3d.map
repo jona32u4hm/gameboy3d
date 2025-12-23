@@ -1,4 +1,5 @@
 SUMMARY:
+<<<<<<< HEAD
 	ROM0: 268 bytes used / 16116 free
 
 ROM0 bank #0:
@@ -12,6 +13,19 @@ ROM0 bank #0:
 	EMPTY: $001c-$003f ($0024 bytes)
 	SECTION: $0040-$0040 ($0001 byte) ["Vblank"]
 	EMPTY: $0041-$0047 ($0007 bytes)
+=======
+	ROM0: 470 bytes used / 15914 free
+	WRAM0: 362 bytes used / 3734 free
+
+ROM0 bank #0:
+	SECTION: $0000-$0039 ($003a bytes) ["Entry point"]
+	         $0000 = Setup
+	         $001a = Setup.waitVBlank
+	         $0036 = MainLoop
+	EMPTY: $003a-$003f ($0006 bytes)
+	SECTION: $0040-$0042 ($0003 bytes) ["Vblank"]
+	EMPTY: $0043-$0047 ($0005 bytes)
+>>>>>>> feature/framebuffer
 	SECTION: $0048-$0048 ($0001 byte) ["LCDC"]
 	EMPTY: $0049-$004f ($0007 bytes)
 	SECTION: $0050-$0050 ($0001 byte) ["Timer"]
@@ -19,6 +33,7 @@ ROM0 bank #0:
 	SECTION: $0058-$0058 ($0001 byte) ["Serial"]
 	EMPTY: $0059-$005f ($0007 bytes)
 	SECTION: $0060-$0060 ($0001 byte) ["Joypad"]
+<<<<<<< HEAD
 	SECTION: $0061-$00b7 ($0057 bytes) ["Tile Generation Code"]
 	         $0061 = generateTiles
 	         $0064 = generateTiles.generateTile
@@ -37,3 +52,44 @@ ROM0 bank #0:
 	SECTION: $0100-$014f ($0050 bytes) ["Header"]
 	EMPTY: $0150-$3fff ($3eb0 bytes)
 	TOTAL EMPTY: $3ef4 bytes
+=======
+	SECTION: $0061-$00d3 ($0073 bytes) ["Tile Generation Code"]
+	         $0061 = generateTiles
+	         $0064 = generateTiles.generateNextTile
+	         $0075 = generateTiles.p1c1
+	         $007d = generateTiles.p2c1
+	         $0087 = generateTiles.p1c2
+	         $008f = generateTiles.p2c2
+	         $00a5 = generateTiles.p3c1
+	         $00ad = generateTiles.p4c1
+	         $00b7 = generateTiles.p3c2
+	         $00bf = generateTiles.p4c2
+	SECTION: $00d4-$00ef ($001c bytes) ["Memory Routines"]
+	         $00d4 = memLoad
+	         $00d8 = memLoad.loop
+	         $00db = memLoad.skip
+	         $00e2 = mapLoad
+	         $00e6 = mapLoad.loop
+	         $00e9 = mapLoad.skip
+	EMPTY: $00f0-$00ff ($0010 bytes)
+	SECTION: $0100-$014f ($0050 bytes) ["Header"]
+	SECTION: $0150-$0205 ($00b6 bytes) ["VBlank Framebuffer Update Routine"]
+	         $0150 = updateFrameBuffer
+	         $0161 = updateFrameBuffer.nextRow
+	         $01a5 = afterVBlank.nextRow
+	         $01a5 = afterVBlank
+	         $01a5 = afterVBlank.waitHBlank1
+	         $01c1 = afterVBlank.waitHBlank2
+	         $01dd = afterVBlank.waitHBlank3
+	         $0204 = afterVBlank.return
+	EMPTY: $0206-$3fff ($3dfa bytes)
+	TOTAL EMPTY: $3e2a bytes
+
+WRAM0 bank #0:
+	SECTION: $c000-$c169 ($016a bytes) ["WRAM"]
+	         $c000 = frameBuffer
+	         $c168 = frameBufferEnd
+	         $c169 = frameDoneFlag
+	EMPTY: $c16a-$cfff ($0e96 bytes)
+	TOTAL EMPTY: $0e96 bytes
+>>>>>>> feature/framebuffer
