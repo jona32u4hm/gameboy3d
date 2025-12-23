@@ -40,9 +40,9 @@ ROM0 bank #0:
 	SECTION: $0150-$02d4 ($0185 bytes) ["VBlank Framebuffer Update Routine"]
 	         $0150 = updateFrameBuffer
 	         $0165 = updateFrameBuffer.next5Rows
-	         $027e = updateFrameBuffer.nextRow
-	         $027e = updateFrameBuffer.waitHBlank1
-	         $029e = updateFrameBuffer.waitHBlank2
+	         $027d = updateFrameBuffer.nextRow
+	         $027d = updateFrameBuffer.waitHBlank1
+	         $029d = updateFrameBuffer.waitHBlank2
 	         $02d3 = updateFrameBuffer.return
 	EMPTY: $02d5-$3fff ($3d2b bytes)
 	TOTAL EMPTY: $3d5b bytes

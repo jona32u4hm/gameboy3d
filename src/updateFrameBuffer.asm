@@ -13,292 +13,297 @@ updateFrameBuffer::
     push de
     push hl
     push bc
-    ld hl, $9933 ;starting at the end of the first 10 rows and we'll come backwards
+    ld hl, $9800;starting at the end of the first 10 rows and we'll come backwards
     ld [frameBufferEnd], sp ;save stack pointer
-    ld sp, frameBuffer + 20*10 - 2  ;point stack at the end of the first 10 rows in buffer
+    ld sp, frameBuffer ;point stack at the end of the first 10 rows in buffer
     
 .next5Rows
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
 
     ld a, l
-    and $F3 ;send to end of row
+    or $0F ;send to end of row
     ld l, a
+    inc hl
+
 
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
 
     ld a, l
-    and $F3 ;send to end of row
+    or $0F ;send to end of row
     ld l, a
+    inc hl
 
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
 
     ld a, l
-    and $F3 ;send to end of row
+    or $0F ;send to end of row
     ld l, a
+    inc hl
 
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
+
 
     ld a, l
-    and $F3 ;send to end of row
+    or $0F ;send to end of row
     ld l, a
+    inc hl
 
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
 
     ld a, l
-    and $F3 ;send to end of row
+    or $0F ;send to end of row
     ld l, a
+    inc hl
 
 
-    cp $F3
+    cp $3F ;l before inc hl stored in a
+    ;3F is timing just behind the VBlank ends
     jp nz,.next5Rows
-
-    ld hl, $9A33 ;starting at the end and we'll come backwards
-    ld sp, frameBufferEnd - 2 ;point stack at the end of the buffer
     
 .nextRow
 .waitHBlank1
@@ -306,67 +311,70 @@ updateFrameBuffer::
     and %00000011 ; HBLANK
     jr nz,.waitHBlank1
 
+
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
 .waitHBlank2
     ld a, [rSTAT]
     and %00000011 ; HBLANK
     jr nz,.waitHBlank2
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
     pop de
-    ld a, d
-    ld [hl-], a
     ld a, e
-    ld [hl-], a
+    ld [hl+], a
+    ld a, d
+    ld [hl+], a
 
     ld a, l
-    and $F3 ;send to end of row
+    or $0F ;send to end of row
     ld l, a
+    inc hl
 
 
-    cp $33
+    cp $3F ;l before inc hl stored in a
+    ;3F is the last row in vram
     jp nz,.nextRow
 
     ld a, [frameBufferEnd + 1]
