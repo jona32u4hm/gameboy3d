@@ -14,3 +14,16 @@ frameBufferEnd::
 frameDoneFlag::
     ds 1
 
+;polygonRAM:
+; - contains array of 2d polygons
+; - byte 1: bits 2-0 = Polygon Type
+;               Types:  000 - none
+;                       001 - dot       (not yet implemented)
+;                       010 - line      (not yet implemented)
+;                       011 - triangle  (not yet implemented))
+;                       100 - quad      (not yet implemented)
+;           bits 1-0 = color (NOTE: 00 is same as BKG)
+; - next bytes are 2d points on screen: 1 byte per coordinate
+polygonRAM::
+    ds 3*4*10
+polygonRAM_END::
