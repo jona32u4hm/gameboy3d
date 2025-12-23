@@ -46,6 +46,11 @@ dec a
 jr z,.triangle ;if zero, we got 3 points, triangle
 dec a
 jr z,.quad ;if zero, we got 4 points, quad
+
+;*could add transparent entities using codes 1000 - 1111
+; *these wouldn't use the mask and would write directly to what is in VRAM
+
+
     ret; if not, we prob got to the end of the polygon ram
 .dot
     ld a, POLYGON_COLOR
@@ -87,7 +92,7 @@ jr z,.quad ;if zero, we got 4 points, quad
         ;now find that tile
         ld hl, frameBuffer
         ld bc, 20
-    .findPixelY
+    .findPixelYs ;*this might be faster with an LUT
         sub 1
         jr c,.foundPixeY
         add hl, bc
@@ -105,8 +110,15 @@ jr z,.quad ;if zero, we got 4 points, quad
     pop hl
     jr .nextPolygon
 .line
+    ;*the slope should be calculated as a Dx per Y
+    ;then add 20 per y and add Dx and write to point
     ret
 .triangle
+    ;*would be better to first check if points are clockwise
+    ;*then calculate two Dx
+    ;finally start filling line by line using an algorithm that starts with either 01 or 11, continues with 11, finally ends with 11 or 10. all depends on pixel coordinate parity
+
     ret
 .quad
+    ;think about it...
     ret
