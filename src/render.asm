@@ -58,7 +58,20 @@ jr z,.quad ;if zero, we got 4 points, quad
     ld b, a
 
 
-    
+ 
+    ld a, [hl+];get x for point
+    ;it should be a value from 0 to 39
+    cp 40
+    jr nc,.nextPolygon ;if not, it's out of the screen
+    ld c, %00111111 ;this is a mask for the pixel
+    rrc a
+    jr nc,.evenX
+    rrc b
+    rrc b ;this puts the color bytes on the second pixel
+    ld c, %11001111 ;rotate the pixel mask too (faster with load)
+    .evenX  
+    and %01111111 
+    ld e, a
 
     ld a, [hl+];get y for point
     ;it should be a value from 0 to 35
@@ -69,22 +82,11 @@ jr z,.quad ;if zero, we got 4 points, quad
     swap b
     swap c ;choose lower bytes of the tile
     .evenY
-    ld e, a
+    and %01111111
     ;d now contains Y tile postion
     ;e now contains X tile postion
     ; b and c contain the (X and Y accurate) color and mask respectively
 
-    ld a, [hl+];get x for point
-    ;it should be a value from 0 to 39
-    cp 40
-    jr nc,.nextPolygon ;if not, it's out of the screen
-    ld c, %00111111 ;this is a mask for the pixel
-    rrc a
-    jr nc,.evenX
-    rr b
-    rr b ;this puts the color bytes on the second pixel
-    ld c, %11001111 ;rotate the pixel mask too (faster with load)
-    .evenX
 
     push hl ;save polygon ram address
     push bc ;save pixel info for when tile is found
@@ -92,7 +94,7 @@ jr z,.quad ;if zero, we got 4 points, quad
         ;now find that tile
         ld hl, frameBuffer
         ld bc, 20
-    .findPixelYs ;*this might be faster with an LUT
+    .findPixelY  ;*this might be faster with an LUT
         sub 1
         jr c,.foundPixeY
         add hl, bc

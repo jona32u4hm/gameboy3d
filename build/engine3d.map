@@ -1,5 +1,5 @@
 SUMMARY:
-	ROM0: 815 bytes used / 15569 free
+	ROM0: 819 bytes used / 15565 free
 	WRAM0: 483 bytes used / 3613 free
 
 ROM0 bank #0:
@@ -20,19 +20,19 @@ ROM0 bank #0:
 	SECTION: $0058-$0058 ($0001 byte) ["Serial"]
 	EMPTY: $0059-$005f ($0007 bytes)
 	SECTION: $0060-$0060 ($0001 byte) ["Joypad"]
-	SECTION: $0061-$00dd ($007d bytes) ["Rendering Routine"]
+	SECTION: $0061-$00e1 ($0081 bytes) ["Rendering Routine"]
 	         $0061 = renderPolygons
 	         $006d = renderPolygons.loop
 	         $008c = renderPolygons.nextPolygon
 	         $009f = renderPolygons.dot
-	         $00b0 = renderPolygons.evenY
-	         $00c2 = renderPolygons.evenX
-	         $00ca = renderPolygons.findPixelY
-	         $00d1 = renderPolygons.foundPixeY
-	         $00db = renderPolygons.line
-	         $00dc = renderPolygons.triangle
-	         $00dd = renderPolygons.quad
-	EMPTY: $00de-$00ff ($0022 bytes)
+	         $00b4 = renderPolygons.evenX
+	         $00c4 = renderPolygons.evenY
+	         $00ce = renderPolygons.findPixelY
+	         $00d5 = renderPolygons.foundPixeY
+	         $00df = renderPolygons.line
+	         $00e0 = renderPolygons.triangle
+	         $00e1 = renderPolygons.quad
+	EMPTY: $00e2-$00ff ($001e bytes)
 	SECTION: $0100-$014f ($0050 bytes) ["Header"]
 	SECTION: $0150-$02d9 ($018a bytes) ["VBlank Framebuffer Update Routine"]
 	         $0150 = updateFrameBuffer
@@ -57,7 +57,7 @@ ROM0 bank #0:
 	         $0367 = Setup.waitVBlank
 	         $0383 = MainLoop
 	EMPTY: $038f-$3fff ($3c71 bytes)
-	TOTAL EMPTY: $3cd1 bytes
+	TOTAL EMPTY: $3ccd bytes
 
 WRAM0 bank #0:
 	SECTION: $c000-$c1e2 ($01e3 bytes) ["WRAM"]
