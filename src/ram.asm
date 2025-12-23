@@ -8,7 +8,7 @@ SECTION "WRAM", WRAM0[$C000]
 frameBuffer::
     ds 20*18 ;(number of tiles in framebuffer)
 frameBufferEnd::
-    ds 1 
+    ds 2
 ;frameDoneFlag::
 ; if this flag contains $00, framebuffer is loaded into VRAM 
 frameDoneFlag::
