@@ -52,5 +52,7 @@ Setup::
 MainLoop::
 	halt 
 	nop 
-
+	call renderPolygons
+	ld a, 0
+	ld [frameDoneFlag],a
 	jr MainLoop

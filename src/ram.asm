@@ -14,6 +14,11 @@ frameBufferEnd::
 frameDoneFlag::
     ds 1
 
+
+    def POLYGON_TYPE  equ %00000_111
+    def POLYGON_COLOR equ %11_000000
+    export POLYGON_TYPE
+    export POLYGON_COLOR
 ;polygonRAM:
 ; - contains array of 2d polygons
 ; - byte 1: bits 2-0 = Polygon Type
@@ -22,7 +27,7 @@ frameDoneFlag::
 ;                       010 - line      (not yet implemented)
 ;                       011 - triangle  (not yet implemented))
 ;                       100 - quad      (not yet implemented)
-;           bits 1-0 = color (NOTE: 00 is same as BKG)
+;           bits 7-6 = color (NOTE: 00 is same as BKG)
 ; - next bytes are 2d points on screen: 1 byte per coordinate
 polygonRAM::
     ds 3*4*10

@@ -382,6 +382,8 @@ updateFrameBuffer::
     ld a, [frameBufferEnd]
     ld l, a
     ld sp, hl
+    ld a, 11
+    ld [frameDoneFlag],a
 
     pop bc
     pop hl
